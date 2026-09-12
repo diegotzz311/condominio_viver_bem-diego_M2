@@ -13,5 +13,5 @@ body {
 }
 input{
     font: 15px;
-    border: solid;
+    border-radius: 5vh;
 }
