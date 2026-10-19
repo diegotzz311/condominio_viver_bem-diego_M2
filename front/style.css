@@ -1,0 +1,150 @@
+:root {
+    color-scheme: light;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #1d2a25;
+    background: #edf3ef;
+    font-synthesis: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+}
+
+.login-page {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 32px 20px;
+    background:
+        radial-gradient(ellipse at 15% 15%, rgb(255 255 255 / 75%), transparent 34%),
+        radial-gradient(ellipse at 90% 85%, rgb(191 219 202 / 55%), transparent 35%),
+        linear-gradient(135deg, #e9f1eb, #dce9df);
+}
+
+.login-card {
+    display: flex;
+    flex-direction: column;
+    width: min(100%, 430px);
+    padding: 44px 42px 30px;
+    border: 1px solid rgb(255 255 255 / 80%);
+    border-radius: 20px;
+    background: rgb(255 255 255 / 94%);
+    box-shadow: 0 24px 70px rgb(32 63 45 / 14%);
+}
+
+.brand-mark {
+    display: grid;
+    width: 52px;
+    height: 52px;
+    place-items: center;
+    margin-bottom: 24px;
+    border-radius: 16px;
+    background: #e6f1e9;
+    color: #267146;
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+}
+
+.eyebrow {
+    margin: 0 0 10px;
+    color: #42815a;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+}
+
+h1 {
+    margin: 0;
+    color: #1d2a25;
+    font-size: clamp(1.7rem, 6vw, 2rem);
+    letter-spacing: -0.04em;
+}
+
+.subtitle {
+    margin: 10px 0 28px;
+    color: #718078;
+    font-size: 0.95rem;
+    line-height: 1.55;
+}
+
+.form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+label {
+    margin-top: 8px;
+    color: #35443b;
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+input {
+    width: 100%;
+    min-height: 48px;
+    padding: 0 14px;
+    border: 1px solid #dce5de;
+    border-radius: 10px;
+    outline: none;
+    background: #fbfdfb;
+    color: #1d2a25;
+    font: inherit;
+    transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+input::placeholder {
+    color: #a3afa7;
+}
+
+input:focus {
+    border-color: #43875b;
+    box-shadow: 0 0 0 3px rgb(67 135 91 / 14%);
+}
+
+button {
+    min-height: 50px;
+    margin-top: 24px;
+    border: 0;
+    border-radius: 10px;
+    background: #287448;
+    box-shadow: 0 8px 18px rgb(40 116 72 / 20%);
+    color: #fff;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+
+button:hover {
+    transform: translateY(-1px);
+    background: #21633d;
+    box-shadow: 0 10px 22px rgb(40 116 72 / 25%);
+}
+
+button:focus-visible {
+    outline: 3px solid #8ab99a;
+    outline-offset: 3px;
+}
+
+.card-footer {
+    margin: 24px 0 0;
+    padding-top: 20px;
+    border-top: 1px solid #edf1ee;
+    color: #8a978f;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    .login-card {
+        padding: 34px 26px 24px;
+        border-radius: 16px;
+    }
+}
