@@ -3,16 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>cond. viver bem</title>
+    <title>Entrar | Condomínio Viver Bem</title>
     <link rel="stylesheet" href="../front/style.css">
 </head>
 <body>
-    <main class="login-page">
-        <form class="login-card" action="">
+    <main class="login-page" id="login-page">
+        <form class="login-card" id="login-form">
             <div class="brand-mark" aria-hidden="true">VB</div>
             <p class="eyebrow">CONDOMÍNIO VIVER BEM</p>
-            <h1>Bem-vindo de volta</h1>
-            <p class="subtitle">Entre com seus dados para acessar sua conta.</p>
+            <h1 id="login-title">Bem-vindo de volta</h1>
+            <p class="subtitle" id="login-description">Entre com seus dados para acessar sua conta.</p>
+
+            <div class="role-switch" role="group" aria-label="Tipo de acesso">
+                <button class="role-option is-active" type="button" data-role="morador" aria-pressed="true">Morador</button>
+                <button class="role-option" type="button" data-role="sindico" aria-pressed="false">Síndico</button>
+            </div>
 
             <div class="form-fields">
                 <label for="email">E-mail</label>
@@ -20,11 +25,97 @@
 
                 <label for="password">Senha</label>
                 <input type="password" id="password" name="password" placeholder="Digite sua senha" autocomplete="current-password" required>
+
+                <div class="resident-field" id="resident-block-field">
+                    <label for="block">Bloco</label>
+                    <input type="text" id="block" name="block" placeholder="Ex.: Bloco A" autocomplete="off" required>
+                </div>
             </div>
 
-            <button type="submit">Entrar na minha conta</button>
-            <p class="card-footer">Acesso exclusivo para sindico</p>
+            <button class="submit-button" type="submit">Entrar como morador</button>
+            <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+            <p class="card-footer" id="card-footer">Acesso para moradores do condomínio</p>
         </form>
+    </main>
+
+    <main class="notice-page" id="notice-page" hidden>
+        <header class="notice-header">
+            <a class="notice-brand" href="#" aria-label="Condomínio Viver Bem">
+                <span class="brand-mark" aria-hidden="true">VB</span>
+                <span><strong>Condomínio Viver Bem</strong><small>Quadro de avisos</small></span>
+            </a>
+            <div class="account-area">
+                <span class="account-name" id="account-name"></span>
+                <button class="logout-button" id="logout-button" type="button">Sair</button>
+            </div>
+        </header>
+
+        <section class="notice-content" aria-labelledby="notice-title">
+            <div class="notice-heading">
+                <div>
+                    <p class="eyebrow">COMUNIDADE</p>
+                    <h1 id="notice-title">Quadro de avisos</h1>
+                    <p class="subtitle">Fique por dentro das novidades e comunicados do condomínio.</p>
+                </div>
+                <button class="create-notice-button" id="show-notice-form" type="button" hidden>Criar aviso</button>
+            </div>
+
+            <form class="notice-form" id="notice-form" hidden>
+                <h2>Novo aviso</h2>
+                <label for="notice-heading-input">Título</label>
+                <input id="notice-heading-input" name="title" type="text" maxlength="100" placeholder="Ex.: Manutenção do elevador" required>
+                <label for="notice-category">Categoria</label>
+                <select id="notice-category" name="category" required>
+                    <option value="Comunicado">Comunicado</option>
+                    <option value="Manutenção">Manutenção</option>
+                    <option value="Evento">Evento</option>
+                    <option value="Importante">Importante</option>
+                </select>
+                <label for="notice-body">Mensagem</label>
+                <textarea id="notice-body" name="body" rows="5" maxlength="2000" placeholder="Escreva os detalhes do aviso..." required></textarea>
+                <div class="notice-form-actions">
+                    <button class="cancel-notice-button" id="cancel-notice" type="button">Cancelar</button>
+                    <button class="create-notice-button" type="submit">Publicar aviso</button>
+                </div>
+            </form>
+
+            <p class="notice-message" id="notice-message" role="status" aria-live="polite"></p>
+            <div class="notice-list" id="notice-list" aria-live="polite"></div>
+
+            <section class="reservation-section" id="reservation-section" aria-labelledby="reservation-title" hidden>
+                <div class="reservation-intro">
+                    <p class="eyebrow">ESPAÇO DO CONDOMÍNIO</p>
+                    <h2 id="reservation-title">Solicitar reserva</h2>
+                    <p>Informe seu apartamento e a data do evento para registrar a solicitação.</p>
+                </div>
+                <form class="reservation-form" id="reservation-form">
+                    <div>
+                        <label for="apartment-number">Número do apartamento</label>
+                        <input id="apartment-number" name="apartmentNumber" type="text" maxlength="30" placeholder="Ex.: 101" autocomplete="off" required>
+                    </div>
+                    <div>
+                        <label for="event-date">Data do evento</label>
+                        <input id="event-date" name="eventDate" type="date" required>
+                    </div>
+                    <div>
+                        <label for="event-time">Horário do evento</label>
+                        <input id="event-time" name="eventTime" type="time" required>
+                    </div>
+                    <button class="create-notice-button" type="submit">Enviar solicitação</button>
+                </form>
+                <p class="reservation-message" id="reservation-message" role="status" aria-live="polite"></p>
+            </section>
+
+            <section class="reservations-admin-section" id="reservations-admin-section" aria-labelledby="reservations-admin-title" hidden>
+                <div class="reservation-intro">
+                    <p class="eyebrow">ADMINISTRAÇÃO</p>
+                    <h2 id="reservations-admin-title">Todas as reservas</h2>
+                    <p>Consulte os apartamentos, as datas e os horários dos eventos agendados.</p>
+                </div>
+                <p class="admin-reservations-message" id="admin-reservations-message" role="status" aria-live="polite"></p>
+                <div class="reservations-list" id="reservations-list" aria-live="polite"></div>
+            </section>
+        </section>
     </main>
     <script src="../front/script.js"></script>
 </body>
