@@ -1,8 +1,8 @@
 module.exports = {
-    "username": "root",
-    "password": null,
-    "database": "database_development",
+    "username": "postgres",
+    "password": "Diego3",
+    "database": "",
     "host": "127.0.0.1",
-    "dialect": "mysql",
+    "dialect": "postgres",
     "port": 5432
   }
