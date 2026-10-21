@@ -7,6 +7,8 @@ const message = document.querySelector("#form-message");
 const footer = document.querySelector("#card-footer");
 const residentBlockField = document.querySelector("#resident-block-field");
 const blockInput = document.querySelector("#block");
+const passwordInput = document.querySelector("#password");
+const passwordToggle = document.querySelector("#password-toggle");
 const loginPage = document.querySelector("#login-page");
 const noticePage = document.querySelector("#notice-page");
 const accountName = document.querySelector("#account-name");
@@ -217,9 +219,20 @@ roleOptions.forEach((option) => {
         footer.textContent = content.footer;
         residentBlockField.hidden = selectedRole !== "morador";
         blockInput.required = selectedRole === "morador";
+        passwordToggle.hidden = false;
+        passwordInput.type = "password";
+        passwordToggle.textContent = "Ver senha";
+        passwordToggle.setAttribute("aria-pressed", "false");
         message.textContent = "";
         message.className = "form-message";
     });
+});
+
+passwordToggle.addEventListener("click", () => {
+    const isVisible = passwordInput.type === "text";
+    passwordInput.type = isVisible ? "password" : "text";
+    passwordToggle.textContent = isVisible ? "Ver senha" : "Ocultar senha";
+    passwordToggle.setAttribute("aria-pressed", String(!isVisible));
 });
 
 form.addEventListener("submit", (event) => {

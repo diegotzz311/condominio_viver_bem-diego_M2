@@ -135,6 +135,38 @@ h1 {
     display: none;
 }
 
+.password-field {
+    position: relative;
+}
+
+.password-field input {
+    padding-right: 92px;
+}
+
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    padding: 6px 2px;
+    transform: translateY(-50%);
+    border: 0;
+    background: transparent;
+    color: #267146;
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.password-toggle:hover {
+    color: #1d5735;
+}
+
+.password-toggle:focus-visible {
+    outline: 2px solid #43875b;
+    outline-offset: 2px;
+}
+
 label {
     margin-top: 8px;
     color: #35443b;
